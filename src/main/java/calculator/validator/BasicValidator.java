@@ -8,10 +8,11 @@ public class BasicValidator {
                 throw new IllegalArgumentException("커스텀 구분자의 마무리가 존재하지 않습니다.");
             return;
         }
-        if (input.matches("^\\d.*")) {
+        if (input.matches("^,.*") || input.matches("^:.*"))
             return;
-        }
+        if (input.matches("^\\d.*"))
+            return;
         if (!input.isEmpty())
-            throw new IllegalArgumentException("문자열이 숫자나 커스텀 구분자 지정 문자로 시작하지 않습니다.");
+            throw new IllegalArgumentException("문자열이 숫자나 기본 구분자, 커스텀 구분자 지정으로 시작하지 않습니다.");
     }
 }
