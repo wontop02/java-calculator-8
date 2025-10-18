@@ -3,7 +3,6 @@ package calculator.controller;
 import calculator.domain.ParsedInput;
 import calculator.validator.BasicValidator;
 import calculator.validator.CustomDelimiterValidator;
-import calculator.validator.NegativeValidator;
 import calculator.validator.OtherCharacterValidator;
 import calculator.view.InputView;
 import calculator.view.OutputView;
