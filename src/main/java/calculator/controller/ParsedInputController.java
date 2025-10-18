@@ -18,7 +18,6 @@ public class ParsedInputController {
     BasicValidator basicV = new BasicValidator();
     CustomDelimiterValidator customDelimiterV = new CustomDelimiterValidator();
     OtherCharacterValidator otherCharacterV = new OtherCharacterValidator();
-    NegativeValidator negativeV = new NegativeValidator();
 
     public void run() {
         String customDelimiter = "";
@@ -60,7 +59,6 @@ public class ParsedInputController {
             }
             otherCharacterV.validate(strNum);
             int num = Integer.parseInt(strNum);
-            negativeV.validate(num);
             numbers.add(num);
         }
         return numbers;
