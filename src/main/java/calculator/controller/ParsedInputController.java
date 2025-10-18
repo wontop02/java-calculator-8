@@ -23,6 +23,7 @@ public class ParsedInputController {
     public void run() {
         String customDelimiter = "";
 
+        outputView.printInputRequest();
         String input = inputView.requestInput();
         basicV.validate(input);
         if (input.matches("^//.*"))
