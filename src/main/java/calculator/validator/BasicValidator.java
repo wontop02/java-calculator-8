@@ -13,6 +13,6 @@ public class BasicValidator {
         if (input.matches("^\\d.*"))
             return;
         if (!input.isEmpty())
-            throw new IllegalArgumentException("문자열이 숫자나 기본 구분자, 커스텀 구분자 지정으로 시작하지 않습니다.");
+            throw new IllegalArgumentException("문자열이 0 이상의 숫자나 기본 구분자, 커스텀 구분자 지정으로 시작하지 않습니다.");
     }
 }
