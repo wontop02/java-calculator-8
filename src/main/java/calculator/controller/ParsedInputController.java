@@ -31,7 +31,7 @@ public class ParsedInputController {
         List<Integer> numbers = extractNumbers(strNumbers);
         ParsedInput parsedInput = new ParsedInput(numbers);
 
-        int result = parsedInput.additionNumbers();
+        int result = parsedInput.sumNumbers();
         outputView.printResult(result);
     }
 

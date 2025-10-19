@@ -9,7 +9,7 @@ public class ParsedInput {
         this.numbers = numbers;
     }
 
-    public int additionNumbers() {
+    public int sumNumbers() {
         int result = 0;
         for (int num : numbers)
            result += num;
