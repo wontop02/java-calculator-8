@@ -41,11 +41,11 @@ public class ParsedInputController {
         return delimiter;
     }
 
-    public String[] splitString(String input, String delimiter) {
-        if (delimiter.isEmpty())
+    public String[] splitString(String input, String customDelimiter) {
+        if (customDelimiter.isEmpty())
             return input.split(",|:");
         input = input.substring(input.indexOf("\\n") + 2);
-        String regex = Pattern.quote(delimiter);
+        String regex = Pattern.quote(customDelimiter);
         return input.split(regex);
     }
 
