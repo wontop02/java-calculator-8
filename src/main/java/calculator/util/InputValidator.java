@@ -4,6 +4,7 @@ import static calculator.constant.CalculatorConstant.BASIC_SEPARATOR;
 import static calculator.constant.CalculatorConstant.CUSTOM_END;
 import static calculator.constant.CalculatorConstant.CUSTOM_LENGTH;
 import static calculator.constant.CalculatorConstant.CUSTOM_START;
+import static calculator.constant.CalculatorConstant.CUSTOM_START_REGEX;
 import static calculator.constant.CalculatorConstant.MAX_NUMBER;
 
 import java.math.BigInteger;
@@ -11,7 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputValidator {
-    private static final String CUSTOM_START_REGEX = "^" + CUSTOM_START + ".*";
     private static final String ONLY_DIGIT_REGEX = "^[0-9]+$";
     private static final String DIGITS_AND_SEPARATOR_ONLY_REGEX = "^[0-9%s]+$";
 
@@ -27,6 +27,9 @@ public class InputValidator {
                     MAX_NUMBER
             );
     private static final String NOT_DIGITS_AND_SEPARATOR_ONLY = "구분자와 숫자를 제외한 문자가 존재합니다.";
+
+    private InputValidator() {
+    }
 
     public static void validateInput(String input) {
         if (input.matches(CUSTOM_START_REGEX)) {
@@ -44,8 +47,9 @@ public class InputValidator {
         String custom = input.substring(input.indexOf(CUSTOM_START) + CUSTOM_START.length(), input.indexOf(CUSTOM_END));
         validateCustomLength(custom);
         validateCustomNotNumber(custom);
-        validateInputFormat(input, custom);
-        List<String> inputs = Arrays.asList(input.split(custom, -1));
+        String numberSection = input.substring(input.indexOf(CUSTOM_END) + CUSTOM_END.length());
+        validateInputFormat(numberSection, custom);
+        List<String> inputs = Arrays.asList(numberSection.split(custom, -1));
         inputs.forEach(InputValidator::validateWithinIntRange);
     }
 
