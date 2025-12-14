@@ -5,6 +5,9 @@ import camp.nextstep.edu.missionutils.Console;
 public class InputView {
     private static final String REQUEST_NUMBERS = "덧셈할 문자열을 입력해 주세요.";
 
+    private InputView() {
+    }
+
     public static String requestNumbers() {
         System.out.println(REQUEST_NUMBERS);
         return Console.readLine();

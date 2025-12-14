@@ -3,6 +3,7 @@ package calculator.controller;
 import calculator.service.CalculatorService;
 import calculator.util.InputValidator;
 import calculator.view.InputView;
+import calculator.view.OutputView;
 
 public class CalculatorController {
     private final CalculatorService calculatorService;
@@ -14,6 +15,7 @@ public class CalculatorController {
     public void run() {
         String input = InputView.requestNumbers();
         InputValidator.validateInput(input);
-        Long result = calculatorService.sum(input);
+        Long result = calculatorService.calculateResult(input);
+        OutputView.printResult(result);
     }
 }
